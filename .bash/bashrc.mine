@@ -12,5 +12,8 @@ if [ -d ~/.bash/functions ]; then
     done
 fi
 
+bind -x '"\201": ghql'
+bind '"\C-g":"\201\C-m"'
+
 # mise
 eval "$(mise activate bash)"

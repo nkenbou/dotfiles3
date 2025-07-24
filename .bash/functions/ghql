@@ -1,0 +1,12 @@
+# Go言語開発環境のための、ghq+pecoの設定手順(macOS, bash向け) #Bash - Qiita
+# https://qiita.com/hidache/items/7dbf0eba2f36f5e1a447
+function ghql() {
+    local selected_file=$(ghq list --full-path | peco --query "$LBUFFER")
+    if [ -n "$selected_file" ]; then
+        if [ -t 1 ]; then
+            echo ${selected_file}
+            cd ${selected_file}
+            pwd
+        fi
+    fi
+}
