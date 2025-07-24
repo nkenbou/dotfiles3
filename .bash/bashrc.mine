@@ -4,6 +4,8 @@ export QT_IM_MODULE=fcitx5
 export XMODIFIERS=@im=fcitx5
 export INPUT_METHOD=fcitx5
 export DefaultIMModule=fcitx5
+# 次回のログインセッションから Fcitx5 を使用するように設定 (1回限りの設定)
+# im-config -n fcitx5
 
 # functions の読み込み
 if [ -d ~/.bash/functions ]; then
