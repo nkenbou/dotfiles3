@@ -5,5 +5,12 @@ export XMODIFIERS=@im=fcitx5
 export INPUT_METHOD=fcitx5
 export DefaultIMModule=fcitx5
 
+# functions の読み込み
+if [ -d ~/.bash/functions ]; then
+    for func in ~/.bash/functions/*; do
+        [ -f "$func" ] && source "$func"
+    done
+fi
+
 # mise
 eval "$(mise activate bash)"
