@@ -1,3 +1,24 @@
+# fcitx5 の起動管理
+if [ $SHLVL = 1 ] ; then
+    if [ -n "$MY_FCITX5_PID" ] && kill -0 "$MY_FCITX5_PID" 2>/dev/null; then
+        kill "$MY_FCITX5_PID" 2>/dev/null
+    fi
+    
+    # fcitx5 を起動してPIDを記録
+    fcitx5 --disable=wayland -d --verbose '*'=0 &
+    export MY_FCITX5_PID=$!
+    
+    # ターミナル終了時のクリーンアップ処理
+    cleanup_processes() {
+        if [ -n "$MY_FCITX5_PID" ] && kill -0 "$MY_FCITX5_PID" 2>/dev/null; then
+            kill "$MY_FCITX5_PID" 2>/dev/null
+        fi
+    }
+    
+    # EXIT, TERM, INT シグナルでクリーンアップを実行
+    trap cleanup_processes EXIT TERM INT
+fi
+
 # functions の読み込み
 if [ -d ~/.bash/functions ]; then
     for func in ~/.bash/functions/*; do
