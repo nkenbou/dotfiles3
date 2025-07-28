@@ -4,7 +4,7 @@ function th() {
     VAULT_NAME="general"
     VAULT_PHYSICAL_PATH="${HOME}/obsidian/${VAULT_NAME}"
 
-    DAILY_NOTE_RELATIVE_PATH="notes/$(date +'%Y-%m-%d').md"
+    DAILY_NOTE_RELATIVE_PATH="daily/$(date +'%Y%m%d').md"
     TEMPLATE_RELATIVE_PATH="_templates/daily-note.md"
 
     DAILY_NOTE_FULL_PATH="${VAULT_PHYSICAL_PATH}/${DAILY_NOTE_RELATIVE_PATH}"
