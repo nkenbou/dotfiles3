@@ -17,5 +17,5 @@ function th() {
 
     CONTENT="$1"
     FORMATED_CONTENT=$'\n- '`date +'%H:%M'`' '"$CONTENT"
-    echo -n $FORMATED_CONTENT >> "$DAILY_NOTE_FULL_PATH"
+    echo -n "$FORMATED_CONTENT" >> "$DAILY_NOTE_FULL_PATH"
 }
