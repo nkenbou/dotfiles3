@@ -1,4 +1,4 @@
-export PATH="~/.local/bin:$PATH"
+export PATH=~/.local/bin:$PATH
 
 # fcitx5
 export GTK_IM_MODULE=fcitx5
