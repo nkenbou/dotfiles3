@@ -1,0 +1,4 @@
+# Windows 側のデフォルトアプリケーションで開く
+winopen() {
+    explorer.exe "$(wslpath -aw "$1")"
+}
