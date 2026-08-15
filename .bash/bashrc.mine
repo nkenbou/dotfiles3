@@ -26,7 +26,7 @@ if [ -d ~/.bash/functions ]; then
     done
 fi
 
-bind -x '"\300": ghql'
+bind -x '"\300": g'
 bind '"\C-g":"\300\C-m"'
 
 # mise
