@@ -5,8 +5,11 @@ if [ $SHLVL = 1 ] ; then
     fi
     
     # fcitx5 を起動してPIDを記録
-    fcitx5 --disable=wayland -d --verbose '*'=0 &
+    # -d (デーモン化) を使うと $! が即終了する親プロセスの PID になり、
+    # ジョブ終了通知 ([1]+ Done ...) が出るうえ PID も追跡できないため使わない
+    fcitx5 --disable=wayland --verbose '*'=0 >/dev/null 2>&1 &
     export MY_FCITX5_PID=$!
+    disown
     
     # ターミナル終了時のクリーンアップ処理
     cleanup_processes() {
